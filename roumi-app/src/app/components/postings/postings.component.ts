@@ -15,7 +15,7 @@ export class PostingsComponent implements OnInit {
   id: number = 0;
   userid: number = 0;
   city: string = '';
-  country: string = '';
+  country: string = 'Any';
   area: string = '';
   budget: number = 0;
   allergies: string[] = [];
@@ -27,36 +27,38 @@ export class PostingsComponent implements OnInit {
   petfriendly: boolean = false;
   kidsfriendly: boolean = false;
   postings: Post[] = [];
+  postingsShown: Post[] = [];
 
   constructor(private services: PostingsService) { }
 
-  ngOnInit(): void { this.loadPostings(); }
+  ngOnInit(): void { 
 
-  loadPostings() { this.services.loadPostings().subscribe(PostingsService => {this.postings = PostingsService}); }
+    this.loadPostings();  }
+
+  loadPostings() { 
+    this.postingsShown = [];
+    this.services.loadPostings().subscribe(PostingsService => {
+    this.postings = PostingsService;
+    })
+    if (this.country != "Any"){ 
+      for (const a of this.postings) {
+        if (this.city != ""){
+          if ((a.country == this.country) && (a.city == this.city)) this.postingsShown.push(a);
+        }
+        else { if (a.country == this.country) this.postingsShown.push(a);
+        }
+      }
+     } else { this.postingsShown = this.postings; }
+  ; }
 
   async loadPostingsAsc() { this.postings = await this.services.loadPostings().toPromise(); }
 
 
-
-  /*
-  ngOnInit(): void {
+  setCountry(){
+    this.city = (<HTMLInputElement>document.getElementById('city-input')).value;
+    console.log(this.city);
+    this.country = (<HTMLSelectElement>document.getElementById('country-select')).value;
+    console.log(this.country);
     this.loadPostings();
-    this.services.getPostings().subscribe(
-      (postings: Post[]) => {
-        console.log(postings);
-        this.postings = postings;
-      }
-    );
   }
-
-  loadPostings() {
-    this.services.loadPostings().subscribe(PostingsService => {
-      this.postings = PostingsService;
-    });
-  }
-
-  async loadPostingsAsc() {
-    this.postings = await this.services.loadPostings().toPromise();
-  }
-  */
 }
