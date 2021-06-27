@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-3 col-6" *ngFor="let posting of postings">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="roomie-name-and-pic">
+                    <h1>{{posting.name}}</h1>
+                    <p><img src="assets/avatars/{{posting.id}}.png" height="150px" width="150px" class="img-fluid rounded-circle"></p>
+                
+                <p>Hi! I'm looking for roommates in the {{posting.area}}, {{posting.city}} area.
+                    My budget is ${{posting.budget}} and I'm expecting to rent with {{posting.maxroomies}} roommates or less.</p>
+                    <div class="labels">
+                    <label class="posting-tag orientation">{{posting.orientation}}</label>
+                    <label class="posting-tag gender">{{posting.gender}}</label>
+                    <label class="posting-tag pets" *ngIf="posting.petfriendly == true">🐶🐱🐦 I love pets!</label>
+                    <label class="posting-tag kids" *ngIf="posting.kidsfriendly == true">👶🏻 I'm kid friendly!</label>
+                </div>
+                <ul>
+                    <li *ngIf="posting.allergies"><b>Allergies</b>: {{posting.allergies}}</li>
+                    <li *ngIf="posting.needs"><b>I need this in my new home</b>: {{posting.needs}}.</li>
+                    <li *ngIf="posting.likes"><b>My hobbies are</b>: {{posting.likes}}</li>
+                    <li><label *ngIf="posting.allies == true">I'm open to ally roommates.</label>
+                        <label *ngIf="posting.allies == false">I'm only looking for LGBT+ roommates.</label></li>
+                    <li><label *ngIf="posting.alreadyrenting == true">I'm already renting. Come join me at my place!</label>
+                        <label *ngIf="posting.alreadyrenting == false">I don't have a place right now.</label></li>
+                </ul>
+                <div class="labels"><button class="btn btn-light"><a href="mailto:{{posting.email}}">Send me a message!</a></button></div>
+            </div>
+        </div>
+    </div>
+</div>
