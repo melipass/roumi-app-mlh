@@ -14,6 +14,8 @@
             <a class="nav-item nav-link active" href="/"><span class="material-icons">home</span> Home</a>
             <a class="nav-item nav-link" href="/finder"><span class="material-icons">face</span> Roomie Finder</a>
             <a class="nav-item nav-link" href="/about"><span class="material-icons">info</span> About</a>
+            <a *ngIf="!logged" class="nav-item nav-link" href="/login">Login</a>
+            <a *ngIf="logged" class="nav-item nav-link" href="/" (click)="logout()">Logout</a>
         </div>
     </div>
 </nav>

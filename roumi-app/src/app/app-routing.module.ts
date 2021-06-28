@@ -7,19 +7,28 @@ import { LoginComponent } from './views/login/login.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { UserHomeComponent } from './views/user-home/user-home.component';
 import { PublishComponent } from './views/publish/publish.component';
+import { AuthenticatorGuard } from './guards/authenticator.guard';
+import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'finder', component: RoomieFinderComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'dashboard', component: UserHomeComponent },
-  { path: 'publish', component: PublishComponent }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthenticatorGuard] },
+  { path: 'dashboard', component: UserHomeComponent, canActivate: [AuthenticatorGuard] },
+  { path: 'publish', component: PublishComponent, canActivate: [AuthenticatorGuard] }
 ];
 
+export function tokenGetter() { return localStorage.getItem('token') }
+
+const JWTModOpts: JwtModuleOptions = { config: { tokenGetter: tokenGetter }};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+            JwtModule.forRoot(JWTModOpts),
+            HttpClientModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="row">
+    <div class="col-md-6 col-12">
+        <div id="formContent">
+                <h1>Login to your account</h1>
+                <br> 
+                <input class="form-control" type="text" [(ngModel)]="email" placeholder="name@domain.com" name="email">
+                <br>
+                <input class="form-control" type="password" [(ngModel)]="password" placeholder="Password" name="password">
+                <br>
+                <input class="btn btn-primary" type="submit" value="Login" (click)="login()">
+
+        </div>
+    </div>
+    <div class="col-md-6 col-12 login-image img-fluid">
+        <img src="assets/login/chill.svg">
+    </div>
+</div>

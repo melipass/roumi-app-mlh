@@ -1,4 +1,69 @@
 {
+    "users": [
+        {
+            "id":1,
+            "name": "John Smith",
+            "gender": "Non-binary",
+            "orientation":"Gay",
+            "age": 27,
+            "email": "john",
+            "password":"john"
+        },
+        {
+            "id":2,
+            "name": "Alice Smith",
+            "gender": "Woman",
+            "orientation":"Pansexual",
+            "age": 24,
+            "email": "alice@alicesmith.com",
+            "password":"1234"
+        },
+        {
+            "id":3,
+            "name": "Melissa Silva",
+            "gender": "Queer",
+            "orientation":"Lesbian",
+            "age": 27,
+            "email": "melissa@gmail.com",
+            "password":"a"
+        },
+        {
+            "id":4,
+            "name": "Juan Soto",
+            "gender": "Man",
+            "orientation":"Straight",
+            "age": 22,
+            "email": "juan@gmail.com",
+            "password":"1234"
+        },
+        {
+            "id":5,
+            "name": "Sebi Suarez",
+            "gender": "Non-binary",
+            "orientation":"Pansexual",
+            "age": 22,
+            "email": "sebi@gmail.com",
+            "password":"1234"
+        },
+        {
+            "id":6,
+            "name": "Drea Ellen",
+            "gender": "Woman",
+            "orientation":"Bisexual",
+            "age": 25,
+            "email": "andrea@gmail.com",
+            "password":"1234"
+        },
+        {
+            "id":7,
+            "name": "Katheryn Alex",
+            "gender": "Non-binary",
+            "orientation":"Pansexual",
+            "age": 23,
+            "email": "katheryn@gmail.com",
+            "password":"1234"
+        }
+    ],
     "posts": [
         {
             "id":1,
@@ -79,7 +144,7 @@
             "gender": "Non-binary",
             "orientation":"Pansexual",
             "age": 22,
-            "email": "juan@gmail.com",
+            "email": "sebi@gmail.com",
             "city":"Madrid",
             "country":"Spain",
             "area":"🇪🇸 Salamanca",

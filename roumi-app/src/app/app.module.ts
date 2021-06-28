@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,6 +14,8 @@ import { LandingCarouselComponent } from './components/landing-carousel/landing-
 import { PublishComponent } from './views/publish/publish.component';
 import { PostingsComponent } from './components/postings/postings.component';
 import { CallbackPipe } from './pipe/callback.pipe';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { CallbackPipe } from './pipe/callback.pipe';
     LandingCarouselComponent,
     PublishComponent,
     PostingsComponent,
-    CallbackPipe
-  ],
+    CallbackPipe,
+    LoginComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

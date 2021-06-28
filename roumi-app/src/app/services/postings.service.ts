@@ -21,24 +21,24 @@ export class PostingsService {
   }
 
   loadPostings() {
-    return this.http.get<Post[]>('http://localhost:3000/posts')
+    return this.http.get<Post[]>('http://50.116.35.214:3000/posts')
   }
 
   loadPostingsFromCity(city: string){
-    return this.http.get<Post[]>('http://localhost:3000/posts?city=' + city)
+    return this.http.get<Post[]>('http://50.116.35.214:3000/posts?city=' + city)
   }
 
   loadPostingsFromCountry(country: string){
-    return this.http.get<Post[]>('http://localhost:3000/posts?country=' + country)
+    return this.http.get<Post[]>('http://50.116.35.214:3000/posts?country=' + country)
   }
 
   loadPostingsFromUser(userid: number){
-    return this.http.get<Post[]>('http://localhost:3000/posts?userid=' + userid)
+    return this.http.get<Post[]>('http://50.116.35.214:3000/posts?userid=' + userid)
   }
 
 
   addPosting(post: Post){
-    return this.http.post<Post>('http://localhost:3000/posts', post)
+    return this.http.post<Post>('http://50.116.35.214:3000/posts', post)
   }
 
 

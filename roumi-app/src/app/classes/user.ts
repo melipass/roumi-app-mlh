@@ -1,5 +1,3 @@
-import * as internal from "stream";
-
 export interface User {
     id?: number;
     name: string;
@@ -8,5 +6,4 @@ export interface User {
     age: number;
     email: string;
     password: string;
-    avatar: string;
 }
